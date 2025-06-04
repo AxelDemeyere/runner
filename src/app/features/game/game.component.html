@@ -1,0 +1,40 @@
+<div class="page-container">
+  <div class="game-container">
+    <canvas #gameCanvas 
+            (click)="handleCanvasClick($event)"
+            (touchstart)="handleCanvasClick($event)"
+            (touchend)="$event.preventDefault()">
+    </canvas>
+
+    <div class="game-overlay">
+      <div class="score-display">Score: {{ score }}</div>
+      <div class="lives-display">Vies: {{ player?.lives || 0 }}</div>
+    </div>
+
+    <div class="game-over-overlay" *ngIf="gameOver">
+      <div class="game-over-content">
+        <h2 class="game-over-title">Game Over</h2>
+        <div class="game-over-score">Score: {{ score }}</div>
+        <div class="game-over-score">Meilleur score: {{ highScore }}</div>
+        <button *ngIf="player?.lives > 0" 
+                class="game-over-button" 
+                (click)="resetGame()">
+          Rejouer
+        </button>
+        <button *ngIf="player?.lives <= 0" 
+                class="game-over-button" 
+                (click)="goToLeaderboard()">
+          Voir le classement
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="orientation-warning" *ngIf="isPortrait">
+    <div>
+      <img src="assets/rotate-device.png" alt="Rotation device">
+      <h2>Veuillez tourner votre appareil</h2>
+      <p>Ce jeu se joue en mode paysage</p>
+    </div>
+  </div>
+</div>

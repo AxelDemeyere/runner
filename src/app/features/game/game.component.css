@@ -1,0 +1,143 @@
+.game-container {
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  overflow: hidden;
+  background-color: #000000;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+.page-container {
+  background-color: #000000;
+  width: 100%;
+  min-height: calc(100vh - 50px);
+  padding: 20px;
+}
+
+.game-overlay {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 10;
+  display: flex;
+  gap: 20px;
+}
+
+.score-display, .lives-display {
+  background: rgba(24, 179, 179, 0.2);
+  padding: 10px 20px;
+  border-radius: 20px;
+  backdrop-filter: blur(5px);
+  color: white;
+  font-weight: 600;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.game-over-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  backdrop-filter: blur(3px);
+}
+
+.game-over-content {
+  background: rgba(24, 179, 179, 0.1);
+  padding: 30px;
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.game-over-title {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: #18b3b3;
+  text-shadow: 0 0 10px rgba(24, 179, 179, 0.5);
+}
+
+.game-over-score {
+  font-size: 1.5em;
+  margin-bottom: 15px;
+}
+
+.game-over-button {
+  background: #18b3b3;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 25px;
+  border: none;
+  font-size: 1.1em;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.game-over-button:hover {
+  background: #149999;
+  transform: scale(1.05);
+}
+
+.orientation-warning {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+.orientation-warning img {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 20px;
+  animation: rotate 2s infinite linear;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Pour les mobiles en mode paysage */
+@media screen and (orientation: landscape) and (max-width: 1024px) {
+  .game-container {
+    height: 70vh;
+  }
+}
+
+@media (max-width: 768px) {
+  .game-overlay {
+    top: 10px;
+    left: 10px;
+    gap: 10px;
+  }
+
+  .score-display, .lives-display {
+    padding: 8px 16px;
+    font-size: 0.9em;
+  }
+}
