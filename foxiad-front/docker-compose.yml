@@ -1,0 +1,16 @@
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: foxiadFrontend
+    ports:
+      - '4200:4200'
+    environment:
+      - NODE_ENV=development
+    volumes:
+      - ./src:/app/src
+      - ./angular.json:/app/angular.json
+      - ./tsconfig.json:/app/tsconfig.json
+      - ./tsconfig.app.json:/app/tsconfig.app.json
+    restart: always

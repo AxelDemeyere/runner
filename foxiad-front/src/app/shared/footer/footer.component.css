@@ -1,0 +1,17 @@
+.footer {
+  padding: 16px;
+  background-color: #1F2937;
+  color: rgba(255, 255, 255, 0.7);
+  text-align: center;
+  height: 50px;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}

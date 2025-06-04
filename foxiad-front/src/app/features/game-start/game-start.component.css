@@ -1,0 +1,143 @@
+.app {
+    overflow-y: auto;
+    min-height: calc(100vh - 100px);
+}
+
+.start-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 24px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  color: #3B82F6;
+  margin-bottom: 24px;
+  font-size: 32px;
+  text-align: center;
+}
+
+h2 {
+  color: #4B5563;
+  margin-bottom: 16px;
+  font-size: 24px;
+}
+
+.player-info {
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #E5E7EB;
+}
+
+.game-preview {
+  height: 150px;
+  background-image: url('/assets/background/lunar-landscape.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;  border-radius: 8px;
+  margin-bottom: 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.runner-preview {
+  position: absolute;
+  bottom: 20px;
+  left: 20%;
+  width: 50px;
+  height: 50px;
+  background-image: url('/assets/personnage/perso1-run1.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 4px;
+}
+
+.obstacle-preview {
+  position: absolute;
+  bottom: 20px;
+  right: 30%;
+  width: 50px;
+  height: 40px;
+  background-image: url('/assets/obstacles/cave_rock5.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 4px;
+  animation: moveObstacle 2s infinite linear;
+}
+
+.ground-preview {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 20px;
+  background-color: #9CA3AF;
+}
+
+.instructions {
+  margin-bottom: 32px;
+}
+
+h3 {
+  margin-bottom: 16px;
+  color: #374151;
+  font-size: 20px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 8px;
+  color: #4B5563;
+  font-size: 16px;
+}
+
+.key {
+  display: inline-block;
+  padding: 2px 8px;
+  background-color: #F3F4F6;
+  border: 1px solid #D1D5DB;
+  border-radius: 4px;
+  color: #374151;
+  font-family: monospace;
+  margin: 0 4px;
+}
+
+.start-btn {
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+  padding: 16px 32px;
+  background-color: #FF5722;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.start-btn:hover {
+  background-color: #E64A19;
+}
+
+.start-btn:active {
+  transform: scale(0.98);
+}
+
+@keyframes moveObstacle {
+  0% {
+    right: -50px;
+  }
+  100% {
+    right: 120%;
+  }
+}

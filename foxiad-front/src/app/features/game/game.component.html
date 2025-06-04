@@ -1,0 +1,8 @@
+<div class="page-container">
+  <div class="game-container">
+    <canvas #gameCanvas 
+            (click)="handleCanvasClick($event)"
+            (touchstart)="handleCanvasClick($event)"
+            (touchend)="$event.preventDefault()"></canvas>
+  </div>
+</div>

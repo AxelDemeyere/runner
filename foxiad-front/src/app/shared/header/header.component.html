@@ -1,0 +1,16 @@
+<header class="header" id="header">
+  <div class="logo">FoxiAd</div>
+
+  <button class="menu-toggle" (click)="toggleMenu()">&#9776;</button>
+
+  <nav class="nav" [class.show]="menuOpen">
+    <a routerLink="/register" routerLinkActive="active" *ngIf="!getIsConnected()" >Inscription</a>
+    <a routerLink="/start" routerLinkActive="active" *ngIf="getIsConnected()">Start</a>
+    <a routerLink="/game" routerLinkActive="active" *ngIf="getIsConnected()">Game</a>
+    <a routerLink="/leaderboard" routerLinkActive="active">Classement</a>
+    <a href="/register" routerLinkActive="active" *ngIf="getIsConnected()">
+      <img src="/assets/logout.svg" alt="" (click)="logout()">
+    </a>
+  </nav>
+</header>
+ 

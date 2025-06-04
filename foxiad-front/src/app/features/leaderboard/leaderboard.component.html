@@ -1,0 +1,69 @@
+<div class="app">
+
+
+  <div class="leaderboard-container">
+    <h2>🏆 Classement du {{ currentDate | date: 'dd/MM/yyyy' }}</h2>
+
+    <!-- Podium (s'affiche uniquement après le tirage au sort) -->
+    <div class="podium" *ngIf="drawCompleted">
+      <div class="podium-item first">
+        <div class="rank">🥇</div>
+        <div class="name">{{ topPlayers[0].firstName }} {{ topPlayers[0].lastName }}</div>
+        <div class="score">{{ topPlayers[0].score }} pts</div>
+      </div>
+      <div class="podium-item second">
+        <div class="rank">🥈</div>
+        <div class="name">{{ topPlayers[1].firstName }} {{ topPlayers[1].lastName }}</div>
+        <div class="score">{{ topPlayers[1].score }} pts</div>
+      </div>
+      <div class="podium-item third" *ngIf="randomWinner">
+        <div class="rank">🥉</div>
+        <div class="name">{{ randomWinner.firstName }} {{ randomWinner.lastName }}</div>
+        <div class="score">{{ randomWinner.score }} pts</div>
+      </div>
+    </div>
+
+    <!-- Roulette -->
+    <div class="roulette-section">
+      <button class="roulette-button" (click)="startRoulette()" [disabled]="isRolling">🎰 Tirage au sort</button>
+
+      <div *ngIf="isRolling" class="countdown">⏳ {{ countdown }} s</div>
+
+      <div class="roulette-display" *ngIf="isRolling">
+        <div class="name">{{ currentRouletteName }}</div>
+      </div>
+
+      <div *ngIf="randomWinner && !isRolling" class="winner-display">
+        🎉 <strong>{{ randomWinner.firstName }} {{ randomWinner.lastName }}</strong> a été tiré au sort ! ({{ randomWinner.score }} pts)
+      </div>
+    </div>
+
+    <!-- Classement complet -->
+    <h3 class="sub-title">Classement complet</h3>
+
+    <table class="leaderboard-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Nom</th>
+          <th>Score</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let player of allPlayersSorted; let i = index">
+          <td>
+            {{ i + 1 }}
+            <span *ngIf="player.winner === 1">🥇</span>
+            <span *ngIf="player.winner === 2">🥈</span>
+            <span *ngIf="player.winner === 3">🎰</span>
+          </td>
+          <td>{{ player.firstName }} {{ player.lastName }}</td>
+          <td>{{ player.score }}</td>
+          <td>{{ player.gameDate | date:'dd/MM/yyyy' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+</div>

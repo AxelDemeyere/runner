@@ -1,0 +1,36 @@
+<div class="app">
+
+  <div class="start-container">
+    <div class="player-info" *ngIf="username">
+      <h2>Bienvenue, {{ username }}!</h2>
+    </div>
+
+    <div class="game-info">
+      <h1>FoxiRun</h1>
+      <div class="game-preview">
+        <div class="runner-preview"></div>
+        <div class="obstacle-preview"></div>
+        <div class="ground-preview"></div>
+      </div>
+
+      <div class="instructions">
+        <h3>Comment jouer:</h3>
+        <ul>
+          <li>Appuie sur l'écran pour sauter</li>
+        </ul>
+        <h3>Règles</h3>
+        <ul>
+          <li>Objectif : [Décrire brièvement ce que les joueurs doivent accomplir pour gagner.]</li>
+          <li>Participants : [Nombre et/ou type de joueurs autorisés.]</li>
+          <li>Durée : [Temps estimé d’une partie ou du jeu complet.]</li>
+          <li>Conditions de victoire : [Expliquer comment un joueur ou une équipe remporte la partie.]</li>
+        </ul>
+      </div>
+
+      <button class="start-btn" (click)="startGame()">
+        Start Game
+      </button>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,112 @@
+.app {
+    overflow-y: auto;
+    min-height: calc(100vh - 100px);
+}
+
+.register-container {
+  position: relative;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 24px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.register-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("/assets/fox/1.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.1; /* Ajustez cette valeur entre 0 et 1 pour modifier l'opacité */
+  z-index: 0;
+}
+
+h1 {
+  color: #24274c;
+  margin-bottom: 16px;
+  font-size: 28px;
+}
+
+.intro {
+  margin-bottom: 24px;
+  color: #4B5563;
+  font-size: 14px;
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+  z-index: 1;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+label {
+  font-weight: 500;
+  color: #374151;
+}
+
+input {
+  padding: 10px 16px;
+  border: 2px solid #E5E7EB;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: border-color 0.2s ease;
+}
+
+input[type=checkbox] {
+  align-self: start;
+}
+
+input:focus {
+  outline: none;
+  border-color: #18b3b3;
+}
+
+input.error {
+  border-color: #EF4444;
+}
+
+.error-message {
+  color: #EF4444;
+  font-size: 14px;
+}
+
+.rgpd {
+  font-size: 14px;
+}
+
+.submit-btn {
+  margin-top: 8px;
+  padding: 12px 24px;
+  background-color: #24274c;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.submit-btn:hover {
+  background-color: #2563EB;
+}
+
+.submit-btn:disabled {
+  background-color: rgba(36, 39, 76, 0.57);
+  cursor: not-allowed;
+}
